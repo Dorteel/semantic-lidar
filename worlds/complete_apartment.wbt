@@ -67,7 +67,6 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/drinks/protos/Can.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/living_room_furniture/protos/Armchair.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/living_room_furniture/protos/Sofa.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/living_room_furniture/protos/Carpet.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/plants/protos/BunchOfSunFlowers.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/plants/protos/PottedTree.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/paintings/protos/PortraitPainting.proto"
@@ -82,7 +81,11 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/bathroom/protos/Toilet.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/lights/protos/CeilingSpotLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/trees/protos/Cypress.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/TurtleBot3Burger.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/devices/robotis/protos/RobotisLds01.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/TireRubber.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Pcb.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/RoughPolymer.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/MattePaint.proto"
 
 WorldInfo {
   info [
@@ -90,10 +93,28 @@ WorldInfo {
   ]
   title "Complete apartment including two bedrooms, one bathroom, one restroom, stairs and a balcony"
   basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      material1 "carpet"
+      material2 "ball"
+      coulombFriction [
+        0
+      ]
+      rollingFriction -1 0 0
+    }
+    ContactProperties {
+      material1 "floor"
+      material2 "ball"
+      coulombFriction [
+        0
+      ]
+      rollingFriction -1 0 0
+    }
+  ]
 }
 Viewpoint {
-  orientation -0.10356122449929372 0.04032309157267216 0.9938053738364614 1.5133864986854075
-  position -8.707766080979258 -5.170590192276304 0.35145415449136386
+  orientation 0.3676147919253575 -0.4615786696771874 -0.8073441004037335 6.083146520794465
+  position -7.239958395884098 -3.7538091003295277 0.23957044385370543
   exposure 0.5
   ambientOcclusionRadius 1
 }
@@ -274,6 +295,7 @@ DEF FLOOR Solid {
   ]
   name "floor"
   model "floor"
+  contactMaterial "floor"
   boundingObject Plane {
     size 13 10
   }
@@ -752,42 +774,44 @@ StraightStairs {
   rightRail []
 }
 PaperBoat {
-  translation -8.74428 -5.41504 0
-  rotation -0.6546520822213608 0.37796304747046094 0.6546560822218632 -1.4454653071795862
+  translation -8.739015024030815 -5.412000252641715 -4.9050000001164135e-05
+  rotation -4.671035204673396e-16 3.536681907602911e-16 -0.9999999999999999 1.0471975302951482
 }
 BiscuitBox {
-  translation -3.6496 -1.06782 0.91
-  rotation 0 0 1 -0.2618053071795865
+  translation -3.6496 -1.06782 0.8899215200000001
+  rotation 7.279406324482719e-17 2.758925668460902e-16 -1 0.2618053071795865
 }
 BiscuitBox {
-  translation -6.12057 -2.46595 0.55
-  rotation 0 0 1 -0.2618053071795865
+  translation -6.12057 -2.46595 0.5499215200000003
+  rotation -4.2143028196863086e-17 -1.0412340910532501e-16 -1 0.2618053071795865
   name "biscuit box(1)"
 }
 CerealBox {
-  translation -1.31224 -3.1174 0.77
-  rotation 0 0 1 2.35619
+  translation -1.3122400000000003 -3.1174 0.7598038000000003
+  rotation 7.623477680501788e-16 -1.6521774187854268e-17 1 2.35619
 }
 CerealBox {
-  translation -2.16698 -0.283733 0.89
-  rotation 0 0 1 -3.1415853071795863
+  translation -2.16698 -0.283733 0.8898038000000005
+  rotation -1.6363131314732474e-17 -1.6396849702259482e-18 1 -3.1415853071795863
   name "cereal box(1)"
 }
 CerealBox {
-  translation -2.26473 -0.288104 0.89
+  translation -2.26473 -0.288104 0.8898038000000005
+  rotation -0.07253225401455272 -0.2571089976330938 -0.9636565962331571 1.5824681302332896e-16
   name "cereal box(2)"
 }
 CerealBox {
-  translation -2.39953 -0.270551 0.89
-  rotation 0 0 1 2.618
+  translation -2.39953 -0.270551 0.8898038000000005
+  rotation 1.1233772067388704e-17 -6.7599760938025924e-18 0.9999999999999999 2.618
   name "cereal box(3)"
 }
 HoneyJar {
-  translation -2.10201 -3.51496 0.76
+  translation -2.10201 -3.51496 0.7594509500000002
+  rotation 0.7516877011443148 0.48167397525080624 0.4505061392638961 7.956653437242664e-16
 }
 JamJar {
-  translation -1.64286 -2.98499 0.76
-  rotation 0 0 1 2.0944
+  translation -1.64286 -2.98499 0.7594509500000002
+  rotation -5.237572157044604e-17 -4.363148319761186e-16 1 2.0944
 }
 WallPlug {
   translation -9.98 -0.15 0.13
@@ -812,8 +836,8 @@ WallPlug {
   name "wall plug(4)"
 }
 Laptop {
-  translation -6.04682 -3.00998 0.55
-  rotation 0 0 1 -1.8325953071795862
+  translation -6.0468139042593 -3.009979649668172 0.5494349007118735
+  rotation -0.0006046167100227917 -0.0004976572190285855 -0.9999996933879162 1.8325889397675479
   controller "<none>"
 }
 CardboardBox {
@@ -881,12 +905,12 @@ Cabinet {
   ]
 }
 RubberDuck {
-  translation -5.38744 -11.0827 0.51
-  rotation 0 0 1 0.785397
+  translation -5.38744 -11.0827 0.5104690091024331
+  rotation 2.5589003923109826e-16 3.8187900943015715e-17 0.9999999999999999 0.785397
 }
 RubberDuck {
-  translation -3.84199 -10.7519 0.86
-  rotation 0 0 1 2.3562
+  translation -3.84199 -10.7519 0.8604690091024331
+  rotation -1.960557604639054e-18 6.4415263601252796e-18 0.9999999999999999 2.3562
   name "rubber duck(1)"
 }
 Cabinet {
@@ -963,23 +987,23 @@ Cabinet {
   }
 }
 Book {
-  translation -8.23284 -6.12584 0.0599989
-  rotation 0.6947460600350939 -0.1861570160863869 -0.6947470600351803 -2.7734953071795863
+  translation -8.232840019344495 -6.125840018476558 0.029941140000000012
+  rotation -0.6947466663305952 0.18615622268688317 0.6947466663305956 2.7734936634163025
   name "book(2)"
 }
 Book {
-  translation -5.8222 -2.49435 0.569999
-  rotation 0.6947480600338772 0.18615701608601462 -0.6947450600336179 2.77349
+  translation -5.82219995574668 -2.494350004001125 0.5599411400000003
+  rotation 0.6947464887870869 0.1861575478889548 -0.6947464887870867 2.7734911017839554
   name "book(3)"
 }
 Book {
-  translation -7.38095 -6.15887 0.0599989
-  rotation 0.6947480600338772 0.18615701608601462 -0.6947450600336179 2.77349
+  translation -7.380949955746678 -6.158870004001127 0.029941140000000012
+  rotation 0.6947464887870869 0.186157547888955 -0.6947464887870867 2.773491101783955
   name "book(5)"
 }
 Book {
-  translation -9.6466 -6.23148 0.129999
-  rotation 0.9659260992006155 0.2588180265806127 0 3.14159
+  translation -9.64659993132042 -6.231480256317236 0.11994114
+  rotation 0.965926099200494 0.25881802658106645 -5.39514716055054e-17 3.141592653589793
   name "book(4)"
 }
 Cabinet {
@@ -1077,20 +1101,21 @@ RoundTable {
   translation -1.430469 -3.615372 0
 }
 Cookware {
-  translation -1.57116 -0.458528 1.16
-  rotation 0 0 -1 -0.5236053071795865
+  translation -1.571158239009347 -0.45852698327620095 1.1597228043577443
+  rotation 0.00030893916170091155 -0.0011529614846555421 0.999999287617951 0.5236056633748735
 }
 Cookware {
-  translation -3.20078 -0.58945 0.89
-  rotation 0 0 1 3.14159
+  translation -3.200781438562925 -0.589449999996266 0.8900728043577457
+  rotation 0.0003089393415435348 -3.9180582820493804e-10 0.9999999522782406 3.1415900000001153
   name "cookware(1)"
 }
 Lid {
-  translation -2.80078 -0.58945 0.89
+  translation -2.80078 -0.58945 0.8869813610000002
+  rotation -0.9660467869370626 -0.25833559227844743 -0.004040694336524711 1.127661482096448e-15
 }
 WoodenSpoon {
-  translation -2.97078 -0.78945 0.89
-  rotation 0 0 1 3.14159
+  translation -2.970780527330531 -0.7894499999985989 0.8892286340628429
+  rotation 0.00034668780512514536 -4.599835128115451e-10 0.9999999399037811 3.14159000000065
 }
 WoodenChair {
   translation -6.88 -12.059999999999999 0
@@ -1217,8 +1242,8 @@ Monitor {
   rotation 0 0 1 1.5707959999999999
 }
 ComputerMouse {
-  translation -7.181647 -12.288115 0.71
-  rotation 0 0 1 -1.8325953071795862
+  translation -7.181789990485558 -12.28808683880707 0.7099803800001014
+  rotation -1.4094191081669613e-06 1.8366025516766427e-06 -0.9999999999973201 1.8324967428703216
 }
 Radiator {
   translation -0.27999999999999997 -1.53 0.36
@@ -1320,9 +1345,11 @@ Wall {
   size 0.3 3.2 2.4
 }
 Door {
+  hidden translation_5 0.0010000038431488278 -1.2136263105588796e-09 0
   translation -6.24 -8.43 0
   rotation 0 0 1 -1.5707953071795862
   size 0.3 1 2.4
+  position 5.219897205456485e-10
   jointAtLeft FALSE
   frameSize 0.001 0.05 0.05
   frameAppearance BrushedAluminium {
@@ -1332,53 +1359,65 @@ Door {
   }
 }
 Door {
+  hidden translation_5 0.001000003844029984 1.2139045324488507e-09 0
   translation -3.89 -3.95 0
   name "door(6)"
   size 0.3 1 2.4
+  position -5.221092750367387e-10
   frameSize 0.001 0.05 0.05
   frameAppearance BrushedAluminium {
   }
 }
 Door {
+  hidden translation_5 0.0010000038440275694 1.2139033112035236e-09 0
   translation -4.94 -8.43 0
   rotation 0 0 1 -1.5707953071795862
   name "door(5)"
   size 0.3 1 2.4
+  position -5.221090942938393e-10
   frameSize 0.001 0.05 0.05
   frameAppearance BrushedAluminium {
   }
 }
 Door {
+  hidden translation_5 0.0010000038440139691 1.213899314400635e-09 0
   translation -6.97 -7.24 0
   rotation 0 0 1 3.14159
   name "door(3)"
   size 0.3 1 2.4
+  position -5.221070887361172e-10
   frameSize 0.001 0.05 0.05
   frameAppearance BrushedAluminium {
   }
 }
 Door {
+  hidden translation_5 0.0010000038440251824 1.2139026450697088e-09 0
   translation -0.91 -6.6 0
   rotation 0 0 1 1.5708
   name "door(4)"
   size 0.3 1 2.4
+  position -5.22108695137375e-10
   frameSize 0.001 0.05 0.05
   frameAppearance BrushedAluminium {
   }
 }
 Door {
+  hidden translation_5 0.0010000038439648418 1.2138838267894414e-09 0
   translation 0 -7.49 0
   name "door(1)"
   size 0.3 1 2.4
+  position -5.221007707542076e-10
   frameSize 0.001 0.05 0.05
   frameAppearance BrushedAluminium {
   }
 }
 Door {
+  hidden translation_5 0.0010000038440492465 1.21391036111973e-09 0
   translation -2.14977 -8.43 0
   rotation 0 0 1 -1.5707953071795862
   name "door(2)"
   size 0.3 1 2.4
+  position -5.22111932393479e-10
   frameSize 0.001 0.05 0.05
   frameAppearance BrushedAluminium {
   }
@@ -1538,109 +1577,131 @@ Table {
   size 1 2.5 0.74
 }
 Carafe {
-  translation -11.1383 -1.59413 0.74
-  rotation 0 0 1 -1.8325953071795862
+  translation -11.138300269621242 -1.5941310024915158 0.7389271681608313
+  rotation -0.0004377745287617565 -0.00033520511971249457 -0.9999998479954831 1.8325954536058577
 }
 Plate {
-  translation -11.5061 -1.63786 0.74
+  translation -11.5061 -1.63786 0.7399705700000002
+  rotation 0.9967991581675206 -0.07655210284040134 0.02304807643242656 5.219836283281335e-16
 }
 Plate {
-  translation -2.28227 -3.63168 0.761
+  translation -2.28227 -3.63168 0.7599705700000002
+  rotation -0.9201032838660576 0.3813025214225264 -0.08954515160365109 6.493759401153266e-16
   name "plate(9)"
 }
 Plate {
-  translation -1.44694 -2.75324 0.762
+  translation -1.44694 -2.75324 0.7599705700000002
+  rotation -0.9480549139014186 0.3084401718506245 -0.07782377924600674 7.394950516167685e-16
   name "plate(10)"
 }
 Knife {
-  translation -2.28688 -3.75127 0.77
-  rotation 1 0 0 3.14159
+  translation -2.2868614034009704 -3.751269774425808 0.7591241817895135
+  rotation 0.9999873438335567 9.470467947499108e-07 -0.005031120333600065 -3.1415736076042564
 }
 Glass {
-  translation -1.51333 -2.90459 0.76
+  translation -1.51333 -2.90459 0.7589833230000002
+  rotation -0.34938784348304663 0.9338406298755298 0.07661470367977685 1.862379459413323e-15
 }
 WaterBottle {
-  translation -1.70218 -3.2776 0.76
+  translation -1.70218 -3.2776 0.7579019000000002
+  rotation -0.9948870871738276 0.09654308923725578 -0.02964988524942519 1.1499700627762297e-15
 }
 Glass {
-  translation -2.13663 -3.69948 0.77
+  translation -2.13663 -3.69948 0.7589833230000002
+  rotation 0.7394157010367876 0.38788990646318244 -0.5502779675075675 3.2473263350539994e-16
   name "glass(8)"
 }
 Knife {
-  translation -1.57524 -2.76727 0.77
-  rotation 0.7071072811865696 -0.7071062811861719 0 3.14159
+  translation -1.575239772767583 -2.7672885995165273 0.7591241817895134
+  rotation 0.707103497977704 -0.707101148881487 -0.003550830631858724 -3.134464097411915
   name "knife(1)"
 }
 Fork {
-  translation -2.26104 -3.51102 0.77
+  translation -2.2610488381024574 -3.511019999999327 0.7611535708169149
+  rotation 6.8748017811642016e-12 -1 2.3062970836943946e-09 0.0069861927055962225
 }
 Fork {
-  translation -1.32326 -2.76785 0.77
-  rotation 0 0 1 -1.5707953071795862
+  translation -1.3232600000076258 -2.7678411618975285 0.7611535708169149
+  rotation -0.0034930679385596843 -0.0034930715001010456 -0.9999877983894963 1.570807508875905
   name "fork(1)"
 }
 Plate {
-  translation -9.3661 -1.63786 0.74
+  translation -9.3661 -1.63786 0.7399705700000002
+  rotation 0.6743209294679029 -0.7384115458348759 0.006298655355904408 1.018062203423682e-15
   name "plate(8)"
 }
 Plate {
-  translation -11.1892 -1.29784 0.74
+  translation -11.1892 -1.29784 0.7399705700000002
+  rotation 0.9959265782254263 -0.0881932814398509 0.01876688288088734 6.428319681871185e-16
   name "plate(2)"
 }
 Plate {
-  translation -11.1892 -1.92784 0.74
+  translation -11.1892 -1.92784 0.7399705700000002
+  rotation 0.89428810293027 -0.44719873912640334 0.016188782571085927 6.585206006548455e-16
   name "plate(3)"
 }
 Plate {
-  translation -10.4792 -1.92784 0.74
+  translation -10.4792 -1.92784 0.7399705700000002
+  rotation 0.007246520968986099 0.9999562228039496 0.005919494024324364 1.1543688696925674e-15
   name "plate(4)"
 }
 Plate {
-  translation -10.4792 -1.30784 0.74
+  translation -10.4792 -1.30784 0.7399705700000002
+  rotation 0.8964057386537729 -0.44263383105652365 0.02306606409443404 4.541518970264945e-16
   name "plate(5)"
 }
 Plate {
-  translation -9.7692 -1.30784 0.74
+  translation -9.7692 -1.30784 0.7399705700000002
+  rotation -0.9537081602375048 0.30020528210686087 0.017819475063354694 4.911868010157154e-16
   name "plate(6)"
 }
 Plate {
-  translation -9.7692 -1.94784 0.74
+  translation -9.7692 -1.94784 0.7399705700000002
+  rotation -0.9985795755605966 0.05300322863534583 0.005430380046394072 4.3504850376134497e-16
   name "plate(7)"
 }
 Wineglass {
-  translation -9.6817 -1.81967 0.74
+  translation -9.6817 -1.81967 0.7395803800000003
+  rotation 0.8475794930554129 0.0384556165453499 -0.5292732456000834 7.207747936468063e-16
 }
 Wineglass {
-  translation -9.49352 -1.55048 0.74
+  translation -9.49352 -1.5504800000000003 0.7395803800000003
+  rotation -0.7963949981365469 0.59295743009037 0.11898106170190793 2.0955861396114447e-15
   name "wine glass(7)"
 }
 Wineglass {
-  translation -10.3817 -1.81967 0.74
+  translation -10.3817 -1.81967 0.7395803800000003
+  rotation 0.9090099681690235 0.2778593221244999 -0.3106365639744689 4.883994545756545e-16
   name "wine glass(1)"
 }
 Wineglass {
-  translation -11.0617 -1.81967 0.74
+  translation -11.0617 -1.81967 0.7395803800000003
+  rotation 0.751756085397068 0.637119204706367 0.17012321141691067 5.498066322516557e-16
   name "wine glass(2)"
 }
 Wineglass {
-  translation -11.405 -1.75571 0.74
+  translation -11.405 -1.75571 0.7395803800000003
+  rotation 0.6535081790474119 -0.7402659290433515 0.1579031798784287 1.1960365535304131e-15
   name "wine glass(3)"
 }
 Wineglass {
-  translation -11.3017 -1.41967 0.74
+  translation -11.3017 -1.41967 0.7395803800000003
+  rotation -0.31089144706898725 0.9498972981842909 0.0322743093115175 5.22937806518876e-16
   name "wine glass(6)"
 }
 Wineglass {
-  translation -10.6317 -1.41967 0.74
+  translation -10.6317 -1.41967 0.7395803800000003
+  rotation 0.9851661678111824 -0.12360361866463727 -0.119036831498642 2.849852082816563e-16
   name "wine glass(4)"
 }
 Wineglass {
-  translation -9.8817 -1.41967 0.74
+  translation -9.8817 -1.41967 0.7395803800000003
+  rotation -0.6308970570929546 -0.7627937835715886 -0.14182576316025794 8.612847192650302e-16
   name "wine glass(5)"
 }
 Carafe {
-  translation -9.78071 -1.64154 0.74
-  rotation 0 0 1 0.785398
+  translation -9.780709265980251 -1.6415392647668934 0.7389270777246354
+  rotation 0.000438300403790207 -0.0010562577184569345 0.9999993461059804 0.7853984617402138
   name "carafe(1)"
 }
 Table {
@@ -1668,11 +1729,12 @@ Table {
   }
 }
 Book {
-  translation -2.73375 -12.6394 0.44
-  rotation 0.7071072811865696 0 -0.7071062811861719 3.14159
+  translation -2.73374998854424 -12.63939358000797 0.40993714337427
+  rotation 0.7071067782919749 -9.048245040745132e-05 -0.7071067782919849 3.141409043369761
 }
 Chair {
-  translation -11.745298 -1.636645 -0.002245
+  translation -11.745298 -1.636645 -0.0022445279999999124
+  rotation 0.01326761460507536 0.8582207108613259 0.5131093273868363 7.349244042876227e-17
   name "chair 1(1)"
   color 0.13333333333333333 0.13333333333333333 0.13333333333333333
   physics Physics {
@@ -1682,8 +1744,8 @@ Chair {
   }
 }
 Chair {
-  translation -11.172214 -1.29268 -0.002245
-  rotation 0 0 1 -1.5707953071795862
+  translation -11.172214 -1.29268 -0.0022445279999999124
+  rotation 4.353991368479744e-19 -9.886671652582264e-19 -0.9999999999999999 1.5707953071795862
   name "chair 1(2)"
   color 0.13333333333333333 0.13333333333333333 0.13333333333333333
   physics Physics {
@@ -1693,8 +1755,8 @@ Chair {
   }
 }
 Chair {
-  translation -11.160617 -1.997738 -0.002245
-  rotation 0 0 -1 -1.570705307179586
+  translation -11.160617 -1.997738 -0.0022445279999999124
+  rotation -3.401083307501096e-17 -3.262982601283066e-17 1 1.570705307179586
   name "chair 1(5)"
   color 0.13333333333333333 0.13333333333333333 0.13333333333333333
   physics Physics {
@@ -1704,8 +1766,8 @@ Chair {
   }
 }
 Chair {
-  translation -10.450617 -1.997809 -0.002245
-  rotation 0 0 -1 -1.570705307179586
+  translation -10.450617 -1.997809 -0.0022445279999999124
+  rotation -3.3968270507018355e-17 -3.1272905803373704e-17 1 1.570705307179586
   name "chair 1(6)"
   color 0.13333333333333333 0.13333333333333333 0.13333333333333333
   physics Physics {
@@ -1715,8 +1777,8 @@ Chair {
   }
 }
 Chair {
-  translation -9.750617 -1.997879 -0.002245
-  rotation 0 0 -1 -1.570705307179586
+  translation -9.750617 -1.997879 -0.0022445279999999124
+  rotation -3.3968270507018355e-17 -3.1272905803373704e-17 1 1.570705307179586
   name "chair 1(7)"
   color 0.13333333333333333 0.13333333333333333 0.13333333333333333
   physics Physics {
@@ -1726,8 +1788,8 @@ Chair {
   }
 }
 Chair {
-  translation -9.774799 -1.2626819999999999 -0.002245
-  rotation 0 0 1 -1.5707953071795862
+  translation -9.774799 -1.2626819999999999 -0.0022445279999999124
+  rotation 2.852300920563069e-18 -2.7139853366895702e-18 -0.9999999999999999 1.5707953071795862
   name "chair 1(3)"
   color 0.13333333333333333 0.13333333333333333 0.13333333333333333
   physics Physics {
@@ -1737,8 +1799,8 @@ Chair {
   }
 }
 Chair {
-  translation -10.485493 -1.2858399999999999 -0.002245
-  rotation 0 0 1 -1.5707953071795862
+  translation -10.485493 -1.2858399999999999 -0.0022445279999999124
+  rotation 2.852300920563069e-18 -2.7139853366895702e-18 -0.9999999999999999 1.5707953071795862
   name "chair 1(4)"
   color 0.13333333333333333 0.13333333333333333 0.13333333333333333
   physics Physics {
@@ -1748,8 +1810,8 @@ Chair {
   }
 }
 Chair {
-  translation -9.203731 -1.595154 -0.002245
-  rotation 0 0 1 3.1415
+  translation -9.203731 -1.595154 -0.0022445279999999124
+  rotation 2.2822426626660068e-17 -3.224883505089813e-18 1 3.1415
   name "chair 4(1)"
   color 0.13333333333333333 0.13333333333333333 0.13333333333333333
   physics Physics {
@@ -1759,31 +1821,36 @@ Chair {
   }
 }
 FruitBowl {
-  translation -10.1277 -1.64062 0.779784
-  rotation 0 0 -1 0.944615
+  translation -10.12732279928984 -1.6417478644258796 0.7398430400058958
+  rotation -0.00018014175432896814 -0.0003241668639284454 -0.999999931232394 0.9448574265534171
   color 0.541176 0.886275 0.203922
 }
 Apple {
-  translation -10.1924 -1.61731 0.829784
+  translation -10.202025847319623 -1.6250763633916938 0.7997065832526206
+  rotation 0.2757671952491894 -0.9586460172610723 -0.07035813822067238 0.3465441697815539
 }
 Orange {
-  translation -1.45315 -3.5095 0.829784
+  translation -1.436026572230616 -3.507726226941423 0.8196927951301721
+  rotation -0.11446414902402617 0.9904279353377056 0.07713924740944236 0.34596494932842803
 }
 Orange {
-  translation -1.48074 -3.62245 0.829784
+  translation -1.4584481539843857 -3.6473586169999717 0.819692781011276
+  rotation 0.5448710151582316 0.5698685591146244 0.615114137516819 0.8213319306415785
   name "orange(2)"
 }
 Orange {
-  translation -1.38529 -3.58551 0.829784
+  translation -1.3774210249930041 -3.5887532405647264 0.8196717921675197
+  rotation 0.3332451106892099 0.8506521033309625 0.40661861160102547 0.184642372283299
   name "orange(3)"
 }
 Orange {
-  translation -10.0824 -1.61731 0.829784
+  translation -10.116485550401363 -1.563238177627057 0.7997053638900747
+  rotation -0.8225735372085692 -0.38089180363501274 -0.42224899029820023 1.4127006628790981
   name "orange(1)"
 }
 FruitBowl {
-  translation -1.45739 -3.5759 0.769784
-  rotation 0 0 -1 0.944615
+  translation -1.4573954086214156 -3.575900936122695 0.7598136099999651
+  rotation -0.0001011575595891922 0.0003127886220521118 -0.9999999459652116 0.9446150663369912
   name "fruit bowl(1)"
   color 0.6666666666666666 0 0
 }
@@ -1801,21 +1868,26 @@ Table {
   name "table(5)"
   size 0.8 1.2 0.53
 }
+Solid {
+  translation -6.17 -3.24 0.5
+  name "solid(3)"
+}
 BeerBottle {
-  translation -6.25675 -2.27668 0.55
-  rotation 0 0 1 1.5708
+  translation -6.25675 -2.27668 0.5504607600000002
+  rotation -3.0124522268251065e-16 4.472776873383342e-16 1 1.5708000000000002
 }
 Can {
-  translation -6.28676 -2.55469 0.61
+  translation -6.28676 -2.55469 0.6110656650000003
+  rotation -0.4976264223390261 -0.8673383807063167 -0.009595683602820988 1.2992280586453138e-15
 }
 BeerBottle {
-  translation -5.83642 -2.19725 0.55
-  rotation 0 0 1 -2.8797953071795863
+  translation -5.83642 -2.19725 0.5504607600000002
+  rotation 6.630655881575343e-17 2.0203228145379658e-16 1 -2.879795307179586
   name "beer bottle(1)"
 }
 BeerBottle {
-  translation -6.31964 -2.88787 0.55
-  rotation 0 0 1 0.261797
+  translation -6.31964 -2.88787 0.5504607600000002
+  rotation -3.06247288745276e-15 -5.194885639031405e-16 1 0.261797
   name "beer bottle(2)"
 }
 Armchair {
@@ -1852,10 +1924,60 @@ Sofa {
   name "sofa 2(1)"
   color 0.827451 0.843137 0.811765
 }
-Carpet {
+Solid {
   translation -5.803488 -2.55795 -0.015
   rotation 0 0 1 -1.5707953071795862
-  color 0.13725490196078433 0.13725490196078433 0.13725490196078433
+  children [
+    Shape {
+      appearance CarpetFibers {
+        colorOverride 0.13725490196078433 0.13725490196078433 0.13725490196078433
+        textureTransform TextureTransform {
+          scale 0.5 0.5
+        }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            1.19297 -0.79297 0.0199999
+            1.19297 0.79297 0.0200001
+            -1.19297 0.79297 0.02
+            -1.19297 -0.79297 0.02
+            -1.2 -0.79297 2.36585e-07
+            -1.2 -0.79297 0.0129702
+            -1.2 0.79297 0.0129702
+            -1.2 0.79297 -1.76981e-07
+            1.19297 0.8 1.77766e-07
+            1.2 0.79297 1.76981e-07
+            1.2 -0.79297 -2.36585e-07
+            1.19297 -0.8 -2.37022e-07
+            1.2 -0.79297 0.0129702
+            1.2 0.79297 0.0129703
+            1.19297 -0.8 0.0129702
+            -1.19297 -0.8 0.0129702
+            -1.19297 0.8 0.0129702
+            1.19297 0.8 0.0129703
+            -1.19297 -0.8 0
+            -1.19297 0.8 0
+          ]
+        }
+        texCoord TextureCoordinate {
+          point [
+            5.9825 -2.98246, 6.00008 -2.98246, 5.9825 -3.00004, 5.9825 0.982388, 5.9825 0.999963, 6.00008 0.982388, 0.0176519 0.982389, 7.8e-05 0.982389, 0.0176523 0.999963, 0.0176523 -2.98246, 0.0176519 -3.00004, 7.75e-05 -2.98246, 0 0, 0 1, 1 1, 0 0, 1 1, 1 0, 0 0, 0 1, 1 1, 0 0, 1 1, 1 0, 1.76e-05 0.982421, 1.64e-05 -2.98243, 0.0175912 -3, 1.76e-05 0.982421, 0.0175912 -3, 0.0175915 0.999995, 5.98244 -3, 5.98244 0.999995, 0.0175912 -3, 5.98244 0.999995, 0.0175915 0.999995, 0.0175912 -3, 5.99685 0.967368, 5.99685 0.999968, 2.54e-05 0.999968, 5.99685 0.967368, 2.54e-05 0.999968, 2.54e-05 0.967368, 5.99685 0.967369, 2.54e-05 0.967368, 2.54e-05 0.999968, 5.99685 0.967369, 2.54e-05 0.999968, 5.99685 0.999968, 5.98244 -3, 6.00002 -2.98243, 6.00002 0.98242, 5.98244 -3, 6.00002 0.98242, 5.98244 0.999995, 0.0176519 0.982389, 5.9825 0.982388, 5.9825 -2.98246, 0.0176519 0.982389, 5.9825 -2.98246, 0.0176523 -2.98246, 7.7e-06 -2.91548, 8.7e-06 0.999997, 0.0320301 0.999997, 7.7e-06 -2.91548, 0.0320301 0.999997, 0.0320301 -2.91548, 0.0320301 -2.91548, 0.0320301 0.999997, 6.7e-06 0.999997, 0.0320301 -2.91548, 6.7e-06 0.999997, 8.7e-06 -2.91548, 5.9825 -2.98246, 5.9825 0.982388, 6.00008 0.982388, 5.9825 -2.98246, 6.00008 0.982388, 6.00008 -2.98246, 0.0176523 -2.98246, 5.9825 -2.98246, 5.9825 -3.00004, 0.0176523 -2.98246, 5.9825 -3.00004, 0.0176519 -3.00004, 5.9825 0.982388, 0.0176519 0.982389, 0.0176523 0.999963, 5.9825 0.982388, 0.0176523 0.999963, 5.9825 0.999963, 0.0176519 0.982389, 0.0176523 -2.98246, 7.75e-05 -2.98246, 0.0176519 0.982389, 7.75e-05 -2.98246, 7.8e-05 0.982389, 1.47e-05 0.999994, 1.47e-05 0.98334, 0.0307421 0.999994, 1.47e-05 0.98334, 0.0307421 0.98334, 0.0307421 0.999994, 1.57e-05 -2.79045, 0.0307425 -2.79045, 0.0307425 -2.7738, 1.57e-05 -2.79045, 0.0307425 -2.7738, 1.57e-05 -2.7738
+          ]
+        }
+        coordIndex [
+          1, 13, 17, -1, 0, 14, 12, -1, 3, 5, 15, -1, 2, 16, 6, -1, 6, 16, 19, -1, 6, 19, 7, -1, 4, 18, 15, -1, 4, 15, 5, -1, 4, 7, 19, -1, 4, 19, 18, -1, 8, 11, 19, -1, 11, 18, 19, -1, 11, 14, 15, -1, 11, 15, 18, -1, 8, 19, 16, -1, 8, 16, 17, -1, 8, 9, 10, -1, 8, 10, 11, -1, 3, 0, 1, -1, 3, 1, 2, -1, 7, 4, 5, -1, 7, 5, 6, -1, 13, 12, 10, -1, 13, 10, 9, -1, 1, 0, 12, -1, 1, 12, 13, -1, 2, 1, 17, -1, 2, 17, 16, -1, 0, 3, 15, -1, 0, 15, 14, -1, 3, 2, 6, -1, 3, 6, 5, -1, 11, 10, 14, -1, 10, 12, 14, -1, 8, 17, 13, -1, 8, 13, 9, -1
+        ]
+        texCoordIndex [
+          0, 1, 2, -1, 3, 4, 5, -1, 6, 7, 8, -1, 9, 10, 11, -1, 12, 13, 14, -1, 15, 16, 17, -1, 18, 19, 20, -1, 21, 22, 23, -1, 24, 25, 26, -1, 27, 28, 29, -1, 30, 31, 32, -1, 33, 34, 35, -1, 36, 37, 38, -1, 39, 40, 41, -1, 42, 43, 44, -1, 45, 46, 47, -1, 48, 49, 50, -1, 51, 52, 53, -1, 54, 55, 56, -1, 57, 58, 59, -1, 60, 61, 62, -1, 63, 64, 65, -1, 66, 67, 68, -1, 69, 70, 71, -1, 72, 73, 74, -1, 75, 76, 77, -1, 78, 79, 80, -1, 81, 82, 83, -1, 84, 85, 86, -1, 87, 88, 89, -1, 90, 91, 92, -1, 93, 94, 95, -1, 96, 97, 98, -1, 99, 100, 101, -1, 102, 103, 104, -1, 105, 106, 107, -1
+        ]
+        creaseAngle 1
+      }
+    }
+  ]
+  name "carpet"
+  model "carpet"
+  contactMaterial "carpet"
 }
 BunchOfSunFlowers {
   translation -7.069851 -0.484029 0
@@ -1915,8 +2037,8 @@ Television {
   controller "<none>"
 }
 FireExtinguisher {
-  translation -0.44006799999999996 -8.158107 0
-  rotation 0 0 -1 -2.094395307179586
+  translation -0.4400680582655343 -8.158107023318943 -0.002354400001832846
+  rotation 0.0011076020035445718 0.0014075943121166848 0.9999983959467407 2.094396696958647
 }
 Clock {
   translation -6.165 -0.155075 1.72
@@ -2063,7 +2185,327 @@ DEF TREES Transform {
     }
   ]
 }
-TurtleBot3Burger {
-  translation -8.73 -4.04 0
-  controller "turtlebot3_ostacle_avoidance"
+Robot {
+  translation -6.529160852685503 -3.5913606875983968 0.0049485361945796474
+  rotation 0.03167499264272776 -0.22460574447448103 0.9739347793308069 0.28765254762699444
+  children [
+    Transform {
+      translation -0.03 0 0.153
+      children [
+        DEF OBJ_REC Camera {
+          translation 0 0 0.031
+          fieldOfView 6.28
+          width 360
+          height 1
+          projection "cylindrical"
+          recognition Recognition {
+          }
+        }
+        RobotisLds01 {
+        }
+      ]
+    }
+    DEF RIGHT_JOINT HingeJoint {
+      jointParameters HingeJointParameters {
+        position 54.31955106283547
+        axis 0 1 0
+        anchor 0 -0.08 0.033
+      }
+      device [
+        RotationalMotor {
+          name "right wheel motor"
+          consumptionFactor -0.001
+          maxVelocity 6.67
+        }
+        PositionSensor {
+          name "right wheel sensor"
+          resolution 0.00628
+        }
+      ]
+      endPoint Solid {
+        translation 0 -0.08 0.033
+        rotation 0 1 0 2.483272605398781
+        children [
+          DEF RIGHT_WHEEL Transform {
+            rotation 1 0 0 -1.5708003061004252
+            children [
+              DEF WHEEL_SHAPE Group {
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 1
+                      metalness 0
+                    }
+                    geometry Mesh {
+                      url [
+                        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/meshes/wheel_shape.obj"
+                      ]
+                    }
+                  }
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 1
+                      metalness 0
+                    }
+                    geometry Mesh {
+                      url [
+                        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/meshes/inner_wheel.obj"
+                      ]
+                    }
+                  }
+                  Shape {
+                    appearance TireRubber {
+                      textureTransform TextureTransform {
+                        scale 1.7 0.76
+                        translation 0 0.164
+                      }
+                      type "bike"
+                    }
+                    geometry Mesh {
+                      url [
+                        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/meshes/tire.obj"
+                      ]
+                    }
+                  }
+                  Shape {
+                    appearance PBRAppearance {
+                    }
+                    geometry Mesh {
+                      url [
+                        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/meshes/wheel_support.obj"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+        name "right wheel"
+        boundingObject Transform {
+          rotation 1 0 0 -1.570796
+          children [
+            Cylinder {
+              height 0.018
+              radius 0.033
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.028499
+          centerOfMass [
+            0 0 0
+          ]
+        }
+      }
+    }
+    DEF LEFT_JOINT HingeJoint {
+      jointParameters HingeJointParameters {
+        position 51.972419368102976
+        axis 0 1 0
+        anchor 0 0.08 0.033
+      }
+      device [
+        RotationalMotor {
+          name "left wheel motor"
+          consumptionFactor -0.001
+          maxVelocity 6.67
+        }
+        PositionSensor {
+          name "left wheel sensor"
+          resolution 0.00628
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.08 0.033
+        rotation -0.9976843044974169 1.7533912045701123e-06 0.06801491422056817 3.1415895944436545
+        children [
+          DEF RIGHT_WHEEL Transform {
+            rotation 1 0 0 -1.5708003061004252
+            children [
+              USE WHEEL_SHAPE
+            ]
+          }
+        ]
+        name "left wheel"
+        boundingObject Transform {
+          rotation 1 0 0 -1.570796
+          children [
+            Cylinder {
+              height 0.018
+              radius 0.033
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.028499
+          centerOfMass [
+            0 0 0
+          ]
+        }
+      }
+    }
+    DEF CASTER_JOINT BallJoint {
+      jointParameters BallJointParameters {
+        position -32.49500273219002
+        anchor -0.081 0 0.004
+      }
+      endPoint Solid {
+        translation -0.081 0 0.004
+        rotation -0.404689049977776 -0.9143142969698272 0.016004348929451854 1.3636297874310102
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry DEF CASTER_SPHERE Sphere {
+              radius 0.004
+              subdivision 2
+            }
+          }
+        ]
+        contactMaterial "ball"
+        boundingObject USE CASTER_SPHERE
+        physics Physics {
+        }
+      }
+    }
+    DEF BODY Transform {
+      translation 0 0 0.01
+      children [
+        DEF MOTORS Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 0.8
+            metalness 0
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/meshes/motors.obj"
+            ]
+          }
+        }
+        DEF CARDS Shape {
+          appearance Pcb {
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/meshes/cards.obj"
+            ]
+          }
+        }
+        DEF HOLDERS Shape {
+          appearance DEF MAIN_APP RoughPolymer {
+            baseColor 0 0 0
+            textureTransform TextureTransform {
+              scale 3 3
+            }
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/meshes/holders.obj"
+            ]
+          }
+        }
+        DEF BODY_FLOOR_0 Shape {
+          appearance USE MAIN_APP
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/meshes/body_floor.obj"
+            ]
+          }
+        }
+        DEF BODY_FLOOR_1 Transform {
+          translation 0 0 0.0376
+          children [
+            USE BODY_FLOOR_0
+          ]
+        }
+        DEF BODY_FLOOR_2 Transform {
+          translation 0 0 0.085
+          children [
+            USE BODY_FLOOR_0
+          ]
+        }
+        DEF BODY_FLOOR_3 Transform {
+          translation 0 0 0.1325
+          children [
+            USE BODY_FLOOR_0
+          ]
+        }
+        DEF BATTERY Shape {
+          appearance MattePaint {
+            baseColor 0.054902 0.121569 0.356863
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/meshes/battery.obj"
+            ]
+          }
+        }
+        DEF SCREWS Shape {
+          appearance PBRAppearance {
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/meshes/screws.obj"
+            ]
+          }
+        }
+        DEF BARS Shape {
+          appearance BrushedAluminium {
+            textureTransform TextureTransform {
+              scale 3 2
+            }
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotis/turtlebot/protos/meshes/bars.obj"
+            ]
+          }
+        }
+      ]
+    }
+    Accelerometer {
+      translation -0.032 0 0.078
+    }
+    Gyro {
+      translation -0.032 0 0.078
+    }
+    Compass {
+      translation -0.032 0 0.078
+    }
+  ]
+  name "TurtleBot3Burger"
+  boundingObject Group {
+    children [
+      Transform {
+        translation -0.032 0 0.08
+        children [
+          Box {
+            size 0.097 0.137 0.1425
+          }
+        ]
+      }
+      Transform {
+        translation -0.032 0 0.08
+        children [
+          Box {
+            size 0.135 0.095 0.143
+          }
+        ]
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 0.825735
+    centerOfMass [
+      -0.035 0 0.03
+    ]
+  }
+  controller "keyboard_controller"
 }
