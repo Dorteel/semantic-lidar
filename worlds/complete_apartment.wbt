@@ -1,4 +1,4 @@
-#VRML_SIM R2023a utf8
+#VRML_SIM R2023b utf8
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Roughcast.proto"
@@ -80,7 +80,6 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/bathroom/protos/Bathtube.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/bathroom/protos/Toilet.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/lights/protos/CeilingSpotLight.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/trees/protos/Cypress.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/devices/robotis/protos/RobotisLds01.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/TireRubber.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Pcb.proto"
@@ -113,8 +112,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.3676147919253575 -0.4615786696771874 -0.8073441004037335 6.083146520794465
-  position -7.239958395884098 -3.7538091003295277 0.23957044385370543
+  orientation 0.32432729832211116 -0.8077896908872757 -0.4922272024780019 6.043549438898369
+  position -6.930147168076679 -3.594647363574244 0.44178222425771013
   exposure 0.5
   ambientOcclusionRadius 1
 }
@@ -127,7 +126,7 @@ TexturedBackground {
 }
 DEF ROOF Group {
   children [
-    Transform {
+    Pose {
       translation -4.83 -6.49 2.4
       rotation -1 0 0 -3.1415923071795864
       children [
@@ -143,7 +142,7 @@ DEF ROOF Group {
         }
       ]
     }
-    Transform {
+    Pose {
       translation -11.13 -1.71 2.4
       rotation -1 0 0 -3.1415923071795864
       children [
@@ -164,7 +163,7 @@ DEF ROOF Group {
 DEF FLOOR Solid {
   translation -4.96 -6.5 0
   children [
-    DEF LIVING_ROOM_1 Transform {
+    DEF LIVING_ROOM_1 Pose {
       translation -1.91 3.2 0
       children [
         Shape {
@@ -179,7 +178,7 @@ DEF FLOOR Solid {
         }
       ]
     }
-    DEF LIVING_ROOM_2 Transform {
+    DEF LIVING_ROOM_2 Pose {
       translation -6.24 4.84 0
       rotation 0 0 1 1.5708
       children [
@@ -195,7 +194,7 @@ DEF FLOOR Solid {
         }
       ]
     }
-    DEF GARDEN Transform {
+    DEF GARDEN Pose {
       translation -6.29 -1.87 0
       rotation 0 0 1 1.5708
       children [
@@ -212,7 +211,7 @@ DEF FLOOR Solid {
         }
       ]
     }
-    DEF KITCHEN Transform {
+    DEF KITCHEN Pose {
       translation 3.02 3.2 0
       rotation 0 0 1 1.5708
       children [
@@ -229,7 +228,7 @@ DEF FLOOR Solid {
         }
       ]
     }
-    DEF CORRIDOR Transform {
+    DEF CORRIDOR Pose {
       translation 0.15 -1.014 0
       rotation 0 0 1 1.5708
       children [
@@ -245,7 +244,7 @@ DEF FLOOR Solid {
         }
       ]
     }
-    DEF BATHROOM_1 Transform {
+    DEF BATHROOM_1 Pose {
       translation 0.48 -4.391 0
       children [
         Shape {
@@ -260,7 +259,7 @@ DEF FLOOR Solid {
         }
       ]
     }
-    DEF ROOM_1 Transform {
+    DEF ROOM_1 Pose {
       translation -2.74 -4.391 0
       rotation 0 0 1 1.5708
       children [
@@ -276,7 +275,7 @@ DEF FLOOR Solid {
         }
       ]
     }
-    DEF ROOM_2 Transform {
+    DEF ROOM_2 Pose {
       translation 3.3 -4.391 0
       rotation 0 0 1 1.5708
       children [
@@ -300,11 +299,11 @@ DEF FLOOR Solid {
     size 13 10
   }
 }
-DEF KITCHEN_BLOCK Transform {
+DEF KITCHEN_BLOCK Pose {
   translation -2.09 -2.3 0
   rotation 0 0 -1 -1.5707953071795862
   children [
-    DEF KITCHEN_TILES_1 Transform {
+    DEF KITCHEN_TILES_1 Pose {
       translation 2.147 0.4 0.9
       rotation 0 -1 0 1.5708
       children [
@@ -321,7 +320,7 @@ DEF KITCHEN_BLOCK Transform {
         }
       ]
     }
-    DEF KITCHEN_TILES_2 Transform {
+    DEF KITCHEN_TILES_2 Pose {
       translation 1.19 1.648 0.9
       rotation -0.5773502691896258 -0.5773502691896258 0.5773502691896258 -2.094395307179586
       children [
@@ -1345,7 +1344,7 @@ Wall {
   size 0.3 3.2 2.4
 }
 Door {
-  hidden translation_5 0.0010000038431488278 -1.2136263105588796e-09 0
+  hidden translation_5 0.0010000040910939367 -1.2919247893705688e-09 0
   translation -6.24 -8.43 0
   rotation 0 0 1 -1.5707953071795862
   size 0.3 1 2.4
@@ -1359,7 +1358,7 @@ Door {
   }
 }
 Door {
-  hidden translation_5 0.001000003844029984 1.2139045324488507e-09 0
+  hidden translation_5 0.001000004092031881 1.2922209413623875e-09 0
   translation -3.89 -3.95 0
   name "door(6)"
   size 0.3 1 2.4
@@ -1369,7 +1368,7 @@ Door {
   }
 }
 Door {
-  hidden translation_5 0.0010000038440275694 1.2139033112035236e-09 0
+  hidden translation_5 0.001000004092029383 1.2922196646059092e-09 0
   translation -4.94 -8.43 0
   rotation 0 0 1 -1.5707953071795862
   name "door(5)"
@@ -1380,7 +1379,7 @@ Door {
   }
 }
 Door {
-  hidden translation_5 0.0010000038440139691 1.213899314400635e-09 0
+  hidden translation_5 0.001000004092014839 1.2922153902472644e-09 0
   translation -6.97 -7.24 0
   rotation 0 0 1 3.14159
   name "door(3)"
@@ -1391,7 +1390,7 @@ Door {
   }
 }
 Door {
-  hidden translation_5 0.0010000038440251824 1.2139026450697088e-09 0
+  hidden translation_5 0.0010000040920268016 1.2922189429609432e-09 0
   translation -0.91 -6.6 0
   rotation 0 0 1 1.5708
   name "door(4)"
@@ -1402,7 +1401,7 @@ Door {
   }
 }
 Door {
-  hidden translation_5 0.0010000038439648418 1.2138838267894414e-09 0
+  hidden translation_5 0.001000004091962714 1.2921989589465e-09 0
   translation 0 -7.49 0
   name "door(1)"
   size 0.3 1 2.4
@@ -1412,7 +1411,7 @@ Door {
   }
 }
 Door {
-  hidden translation_5 0.0010000038440492465 1.21391036111973e-09 0
+  hidden translation_5 0.00100000409205242 1.2922271586113254e-09 0
   translation -2.14977 -8.43 0
   rotation 0 0 1 -1.5707953071795862
   name "door(2)"
@@ -1533,42 +1532,14 @@ FloorLight {
 Transform {
   translation -9.51375 -11.8794 0.4
   scale 0.4 0.4 0.4
-  children [
-    FloorLight {
-      translation -0.214575 1.45231 0
-      name "floor light(2)"
-      bulbColor 0.937255 0.16078399999999998 0.16078399999999998
-      pointLightColor 1 0.5799949999999999 0.5799949999999999
-      pointLightIntensity 0.7
-      pointLightRadius 3
-    }
-  ]
 }
 Transform {
   translation -2.73375 -12.6994 0.4
   scale 0.4 0.4 0.4
-  children [
-    FloorLight {
-      translation 0 -0.2 0
-      name "floor light(4)"
-      pointLightIntensity 0.7
-      pointLightRadius 3
-    }
-  ]
 }
 Transform {
   translation -9.51375 -9.6494 0.4
   scale 0.4 0.4 0.4
-  children [
-    FloorLight {
-      translation 0 1.31 0
-      name "floor light(3)"
-      bulbColor 0.937255 0.16078399999999998 0.16078399999999998
-      pointLightColor 1 0.5799949999999999 0.5799949999999999
-      pointLightIntensity 0.7
-      pointLightRadius 3
-    }
-  ]
 }
 Table {
   translation -10.415072 -1.632191 0
@@ -1863,10 +1834,542 @@ Table {
   legAppearance BrushedAluminium {
   }
 }
-Table {
+Solid {
   translation -6.014093 -2.658387 0.02
+  children [
+    Solid {
+      translation 0 0 0.505
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 10 10
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.4 0.6 0.025
+                0.4 0.6 0.025
+                0.4 0.6 -0.025
+                -0.4 0.6 -0.025
+                -0.4 -0.6 -0.025
+                0.4 -0.6 -0.025
+                0.4 -0.6 0.025
+                -0.4 -0.6 0.025
+                -0.4 -0.6 0.025
+                0.4 -0.6 0.025
+                0.4 0.6 0.025
+                -0.4 0.6 0.025
+                0.4 -0.6 -0.025
+                -0.4 -0.6 -0.025
+                -0.4 0.6 -0.025
+                0.4 0.6 -0.025
+                -0.4 -0.6 -0.025
+                -0.4 -0.6 0.025
+                -0.4 0.6 0.025
+                -0.4 0.6 -0.025
+                0.4 -0.6 0.025
+                0.4 -0.6 -0.025
+                0.4 0.6 -0.025
+                0.4 0.6 0.025
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0.6666666666666667 0.04166666666666667
+                0 0.04166666666666667
+                0 0
+                0.6666666666666667 0
+                0 0
+                0.6666666666666667 0
+                0.6666666666666667 0.04166666666666667
+                0 0.04166666666666667
+                0 0.6666666666666667
+                0 0
+                1 0
+                1 0.6666666666666667
+                0 0.6666666666666667
+                0 0
+                1 0
+                1 0.6666666666666667
+                1 0
+                1 0.04166666666666667
+                0 0.04166666666666667
+                0 0
+                0 0.04166666666666667
+                0 0
+                1 0
+                1 0.04166666666666667
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "main frame"
+      model "box"
+      boundingObject Box {
+        size 0.8 1.2 0.05
+      }
+    }
+    Solid {
+      translation 0.35000000000000003 0.5499999999999999 0.24000000000000002
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.05 0.05 0.24
+                0.05 0.05 0.24
+                0.05 0.05 -0.24
+                -0.05 0.05 -0.24
+                -0.05 -0.05 -0.24
+                0.05 -0.05 -0.24
+                0.05 -0.05 0.24
+                -0.05 -0.05 0.24
+                -0.05 -0.05 0.24
+                0.05 -0.05 0.24
+                0.05 0.05 0.24
+                -0.05 0.05 0.24
+                0.05 -0.05 -0.24
+                -0.05 -0.05 -0.24
+                -0.05 0.05 -0.24
+                0.05 0.05 -0.24
+                -0.05 -0.05 -0.24
+                -0.05 -0.05 0.24
+                -0.05 0.05 0.24
+                -0.05 0.05 -0.24
+                0.05 -0.05 0.24
+                0.05 -0.05 -0.24
+                0.05 0.05 -0.24
+                0.05 0.05 0.24
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0.20833333333333334 1
+                0 1
+                0 0
+                0.20833333333333334 0
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 1
+                0 1
+                0 0.20833333333333334
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 0.20833333333333334
+                0 0.20833333333333334
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 0.20833333333333334
+                0.20833333333333334 0
+                0.20833333333333334 1
+                0 1
+                0 0
+                0 1
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 1"
+      model "box"
+      boundingObject Box {
+        size 0.1 0.1 0.48
+      }
+    }
+    Solid {
+      translation -0.35000000000000003 0.5499999999999999 0.24000000000000002
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.05 0.05 0.24
+                0.05 0.05 0.24
+                0.05 0.05 -0.24
+                -0.05 0.05 -0.24
+                -0.05 -0.05 -0.24
+                0.05 -0.05 -0.24
+                0.05 -0.05 0.24
+                -0.05 -0.05 0.24
+                -0.05 -0.05 0.24
+                0.05 -0.05 0.24
+                0.05 0.05 0.24
+                -0.05 0.05 0.24
+                0.05 -0.05 -0.24
+                -0.05 -0.05 -0.24
+                -0.05 0.05 -0.24
+                0.05 0.05 -0.24
+                -0.05 -0.05 -0.24
+                -0.05 -0.05 0.24
+                -0.05 0.05 0.24
+                -0.05 0.05 -0.24
+                0.05 -0.05 0.24
+                0.05 -0.05 -0.24
+                0.05 0.05 -0.24
+                0.05 0.05 0.24
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0.20833333333333334 1
+                0 1
+                0 0
+                0.20833333333333334 0
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 1
+                0 1
+                0 0.20833333333333334
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 0.20833333333333334
+                0 0.20833333333333334
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 0.20833333333333334
+                0.20833333333333334 0
+                0.20833333333333334 1
+                0 1
+                0 0
+                0 1
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 2"
+      model "box"
+      boundingObject Box {
+        size 0.1 0.1 0.48
+      }
+    }
+    Solid {
+      translation 0.35000000000000003 -0.5499999999999999 0.24000000000000002
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.05 0.05 0.24
+                0.05 0.05 0.24
+                0.05 0.05 -0.24
+                -0.05 0.05 -0.24
+                -0.05 -0.05 -0.24
+                0.05 -0.05 -0.24
+                0.05 -0.05 0.24
+                -0.05 -0.05 0.24
+                -0.05 -0.05 0.24
+                0.05 -0.05 0.24
+                0.05 0.05 0.24
+                -0.05 0.05 0.24
+                0.05 -0.05 -0.24
+                -0.05 -0.05 -0.24
+                -0.05 0.05 -0.24
+                0.05 0.05 -0.24
+                -0.05 -0.05 -0.24
+                -0.05 -0.05 0.24
+                -0.05 0.05 0.24
+                -0.05 0.05 -0.24
+                0.05 -0.05 0.24
+                0.05 -0.05 -0.24
+                0.05 0.05 -0.24
+                0.05 0.05 0.24
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0.20833333333333334 1
+                0 1
+                0 0
+                0.20833333333333334 0
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 1
+                0 1
+                0 0.20833333333333334
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 0.20833333333333334
+                0 0.20833333333333334
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 0.20833333333333334
+                0.20833333333333334 0
+                0.20833333333333334 1
+                0 1
+                0 0
+                0 1
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 3"
+      model "box"
+      boundingObject Box {
+        size 0.1 0.1 0.48
+      }
+    }
+    Solid {
+      translation -0.35000000000000003 -0.5499999999999999 0.24000000000000002
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.05 0.05 0.24
+                0.05 0.05 0.24
+                0.05 0.05 -0.24
+                -0.05 0.05 -0.24
+                -0.05 -0.05 -0.24
+                0.05 -0.05 -0.24
+                0.05 -0.05 0.24
+                -0.05 -0.05 0.24
+                -0.05 -0.05 0.24
+                0.05 -0.05 0.24
+                0.05 0.05 0.24
+                -0.05 0.05 0.24
+                0.05 -0.05 -0.24
+                -0.05 -0.05 -0.24
+                -0.05 0.05 -0.24
+                0.05 0.05 -0.24
+                -0.05 -0.05 -0.24
+                -0.05 -0.05 0.24
+                -0.05 0.05 0.24
+                -0.05 0.05 -0.24
+                0.05 -0.05 0.24
+                0.05 -0.05 -0.24
+                0.05 0.05 -0.24
+                0.05 0.05 0.24
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0.20833333333333334 1
+                0 1
+                0 0
+                0.20833333333333334 0
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 1
+                0 1
+                0 0.20833333333333334
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 0.20833333333333334
+                0 0.20833333333333334
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 0.20833333333333334
+                0.20833333333333334 0
+                0.20833333333333334 1
+                0 1
+                0 0
+                0 1
+                0 0
+                0.20833333333333334 0
+                0.20833333333333334 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 4"
+      model "box"
+      boundingObject Box {
+        size 0.1 0.1 0.48
+      }
+    }
+  ]
   name "table(5)"
-  size 0.8 1.2 0.53
+  model "table"
 }
 Solid {
   translation -6.17 -3.24 0.5
@@ -2131,65 +2634,12 @@ CeilingSpotLight {
 }
 DEF TREES Transform {
   scale 1 1 0.6
-  children [
-    Cypress {
-      translation -12.53 -4.26 0
-      rotation 0 0 1 -0.5235983071795864
-      enableBoundingObject FALSE
-    }
-    Cypress {
-      translation -12.53 -4.76 0
-      name "cypress tree(1)"
-      enableBoundingObject FALSE
-    }
-    Cypress {
-      translation -12.53 -5.279999999999999 0
-      rotation 0 0 1 0.7853979999999999
-      name "cypress tree(2)"
-      enableBoundingObject FALSE
-    }
-    Cypress {
-      translation -12.53 -5.85 0
-      rotation 0 0 1 -0.26179930717958655
-      name "cypress tree(3)"
-      enableBoundingObject FALSE
-    }
-    Cypress {
-      translation -12.53 -6.37 0
-      rotation 0 0 1 -1.0471973071795864
-      name "cypress tree(4)"
-      enableBoundingObject FALSE
-    }
-    Cypress {
-      translation -12.53 -6.85 0
-      rotation 0 0 1 1.308997
-      name "cypress tree(5)"
-      enableBoundingObject FALSE
-    }
-    Cypress {
-      translation -12.53 -7.319999999999999 0
-      rotation 0 0 1 -0.7853983071795865
-      name "cypress tree(6)"
-      enableBoundingObject FALSE
-    }
-    Cypress {
-      translation -12.53 -7.9799999999999995 0
-      rotation 0 0 1 0.5235989999999999
-      name "cypress tree(7)"
-      enableBoundingObject FALSE
-    }
-    Cypress {
-      translation -12.53 -8.5 0
-      name "cypress tree(8)"
-      enableBoundingObject FALSE
-    }
-  ]
 }
 Robot {
   translation -6.529160852685503 -3.5913606875983968 0.0049485361945796474
   rotation 0.03167499264272776 -0.22460574447448103 0.9739347793308069 0.28765254762699444
   children [
-    Transform {
+    Pose {
       translation -0.03 0 0.153
       children [
         DEF OBJ_REC Camera {
@@ -2199,6 +2649,7 @@ Robot {
           height 1
           projection "cylindrical"
           recognition Recognition {
+            occlusion 2
           }
         }
         RobotisLds01 {
@@ -2224,9 +2675,9 @@ Robot {
       ]
       endPoint Solid {
         translation 0 -0.08 0.033
-        rotation 0 1 0 2.483272605398781
+        rotation 0 1 0 2.4832726053987813
         children [
-          DEF RIGHT_WHEEL Transform {
+          DEF RIGHT_WHEEL Pose {
             rotation 1 0 0 -1.5708003061004252
             children [
               DEF WHEEL_SHAPE Group {
@@ -2284,7 +2735,7 @@ Robot {
           }
         ]
         name "right wheel"
-        boundingObject Transform {
+        boundingObject Pose {
           rotation 1 0 0 -1.570796
           children [
             Cylinder {
@@ -2321,9 +2772,9 @@ Robot {
       ]
       endPoint Solid {
         translation 0 0.08 0.033
-        rotation -0.9976843044974169 1.7533912045701123e-06 0.06801491422056817 3.1415895944436545
+        rotation -0.9976843044974169 1.7533912045701121e-06 0.06801491422056817 3.1415895944436545
         children [
-          DEF RIGHT_WHEEL Transform {
+          DEF RIGHT_WHEEL Pose {
             rotation 1 0 0 -1.5708003061004252
             children [
               USE WHEEL_SHAPE
@@ -2331,7 +2782,7 @@ Robot {
           }
         ]
         name "left wheel"
-        boundingObject Transform {
+        boundingObject Pose {
           rotation 1 0 0 -1.570796
           children [
             Cylinder {
@@ -2373,7 +2824,7 @@ Robot {
         }
       }
     }
-    DEF BODY Transform {
+    DEF BODY Pose {
       translation 0 0 0.01
       children [
         DEF MOTORS Shape {
@@ -2418,19 +2869,19 @@ Robot {
             ]
           }
         }
-        DEF BODY_FLOOR_1 Transform {
+        DEF BODY_FLOOR_1 Pose {
           translation 0 0 0.0376
           children [
             USE BODY_FLOOR_0
           ]
         }
-        DEF BODY_FLOOR_2 Transform {
+        DEF BODY_FLOOR_2 Pose {
           translation 0 0 0.085
           children [
             USE BODY_FLOOR_0
           ]
         }
-        DEF BODY_FLOOR_3 Transform {
+        DEF BODY_FLOOR_3 Pose {
           translation 0 0 0.1325
           children [
             USE BODY_FLOOR_0
@@ -2482,7 +2933,7 @@ Robot {
   name "TurtleBot3Burger"
   boundingObject Group {
     children [
-      Transform {
+      Pose {
         translation -0.032 0 0.08
         children [
           Box {
@@ -2490,7 +2941,7 @@ Robot {
           }
         ]
       }
-      Transform {
+      Pose {
         translation -0.032 0 0.08
         children [
           Box {

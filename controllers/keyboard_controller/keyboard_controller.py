@@ -82,7 +82,26 @@ while robot.step(timestep) != -1:
     img = camera.getImage()
     #print(len(lidarData))
     #print("LIDAR readings:", lidarData)
-    print(camera.getRecognitionObjects())
+    print('='*50)
+    # Get current number of object recognized
+    number_of_objects = camera.getRecognitionNumberOfObjects()
+    print("\nRecognized {} objects.\n".format(number_of_objects))
+
+        # Get and display all the objects information
+    objects = camera.getRecognitionObjects()
+    for i, obj in enumerate(objects):
+        print("Model of object {}: {}".format(i, obj.getModel()))
+        print("Id of object {}: {}".format(i, obj.getId()))
+        print("Relative position of object {}: {} {} {}".format(i, *obj.getPosition()))
+        print("Relative orientation of object {}: {} {} {} {}".format(i, *obj.getOrientation()))
+        print("Size of object {}: {} {}".format(i, *obj.getSize()))
+        print("Position of the object {} on the camera image: {} {}".format(i, *obj.getPositionOnImage()))
+        print("Size of the object {} on the camera image: {} {}".format(i, *obj.getSizeOnImage()))
+        for j in range(obj.getNumberOfColors()):
+            colors = obj.getColors()
+            print("- Color {}/{}: {} {} {}".format(j + 1, obj.getNumberOfColors(), 
+                                                       colors[3 * j], colors[3 * j + 1], colors[3 * j + 2]))
+
     # lidar_ranges = np.random.uniform(low=0.5, high=10.0, size=360)
     lidar_angles = np.linspace(-np.pi, np.pi, 360)
     # Plot the LIDAR readings
