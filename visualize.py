@@ -1,74 +1,42 @@
-from controller import Robot, Motor, Lidar, Keyboard, LidarPoint
+#from controller import Robot, Motor, Lidar, Keyboard, LidarPoint, Camera
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 import numpy as np
 from matplotlib.animation import FuncAnimation
+from matplotlib.patches import Circle
 
-# Constants
-MAX_SPEED = 6.67
+def plot_with_custom_colors(xy_pairs, highlight_indices, default_color='blue', highlight_color='red'):
+    """
+    Plots (x, y) pairs with custom colors for specified indices.
+    
+    Parameters:
+    - xy_pairs: List of (x, y) tuples.
+    - highlight_indices: List of indices of xy_pairs to highlight.
+    - default_color: Color for the default points.
+    - highlight_color: Color for the highlighted points.
+    """
+    # Separate x and y values
+    x_values, y_values = zip(*xy_pairs)
+    
+    # Plot default points
+    plt.scatter(x_values, y_values, color=default_color, label='Default Points')
+    
+    # Plot highlighted points
+    for index in highlight_indices:
+        if 0 <= index < len(xy_pairs):
+            plt.scatter(x_values[index], y_values[index], color=highlight_color, label='Highlighted Points')
+    
+    # Handle legend (to avoid duplicate labels for highlighted points)
+    handles, labels = plt.gca().get_legend_handles_labels()
+    by_label = dict(zip(labels, handles))  # Removes duplicates
+    plt.legend(by_label.values(), by_label.keys())
+    
+    plt.xlabel('X Coordinate')
+    plt.ylabel('Y Coordinate')
+    plt.title('Custom Colored Points')
+    plt.show()
 
-# Initialize Webots robot
-robot = Robot()
-
-# Setup devices (assuming device names and Webots setup)
-timestep = int(robot.getBasicTimeStep())
-leftMotor = robot.getDevice("left wheel motor")
-rightMotor = robot.getDevice("right wheel motor")
-leftMotor.setPosition(float('inf'))
-rightMotor.setPosition(float('inf'))
-leftMotor.setVelocity(0)
-rightMotor.setVelocity(0)
-lidar = robot.getDevice("LDS-01")
-lidar.enable(timestep)
-lidar.enablePointCloud()
-keyboard = robot.getKeyboard()
-keyboard.enable(timestep)
-
-# Initialize plot for LIDAR data visualization
-fig, ax = plt.subplots(figsize=(8, 8))
-lidar_data_line, = ax.plot([], [], 'r-')  # Red line for LIDAR data points
-ax.set_xlim(-1, 1)  # Assuming LIDAR range is normalized [-1, 1]
-ax.set_ylim(-1, 1)
-ax.set_title('LIDAR Readings')
-ax.set_xlabel('X Coordinate')
-ax.set_ylabel('Y Coordinate')
-ax.axis('equal')
-
-# Function to update LIDAR data in the plot
-def update_lidar_plot():
-    lidar_points = lidar.getRangeImage()  # Fetch LIDAR data
-    # Assuming lidar_points are polar coordinates, convert to Cartesian
-    angles = np.linspace(-np.pi, np.pi, len(lidar_points))
-    x = lidar_points * np.cos(angles)
-    y = lidar_points * np.sin(angles)
-    lidar_data_line.set_data(x, y)
-    plt.draw()
-    plt.pause(0.001)  # Pause briefly to update the plot
-
-# Main control loop
-while robot.step(timestep) != -1:
-    # Robot control code here (handling keyboard input, motor speed adjustments, etc.)
-    key = keyboard.getKey()
-    while keyboard.getKey() != -1: pass
-
-    if key == Keyboard.UP:
-        # Move forward
-        leftMotor.setVelocity(MAX_SPEED)
-        rightMotor.setVelocity(MAX_SPEED)
-    elif key == Keyboard.DOWN:
-        # Move backward
-        leftMotor.setVelocity(-MAX_SPEED)
-        rightMotor.setVelocity(-MAX_SPEED)
-    elif key == Keyboard.LEFT:
-        # Turn left
-        leftMotor.setVelocity(-MAX_SPEED)
-        rightMotor.setVelocity(MAX_SPEED)
-    elif key == Keyboard.RIGHT:
-        # Turn right
-        leftMotor.setVelocity(MAX_SPEED)
-        rightMotor.setVelocity(-MAX_SPEED)
-    else:
-        # Stop
-        leftMotor.setVelocity(0)
-        rightMotor.setVelocity(0)
-    # Update LIDAR visualization
-    update_lidar_plot()
+# Example usage
+xy_pairs = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10)]
+highlight_indices = [1, 3]  # Change the color of the 2nd and 4th points
+plot_with_custom_colors(xy_pairs, highlight_indices, default_color='blue', highlight_color='red')

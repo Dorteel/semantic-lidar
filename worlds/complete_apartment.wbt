@@ -19,7 +19,6 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/CarpetFibers.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/stairs/protos/StraightStairsRail.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/BrushedAluminium.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/toys/protos/PaperBoat.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/kitchen/breakfast/protos/BiscuitBox.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/kitchen/breakfast/protos/CerealBox.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/kitchen/breakfast/protos/HoneyJar.proto"
@@ -92,7 +91,7 @@ WorldInfo {
     "This simulation was sponsored by Kamal Othman & Prof. Ahmad Rad from AISL-SFU"
   ]
   title "Complete apartment including two bedrooms, one bathroom, one restroom, stairs and a balcony"
-  basicTimeStep 16
+  basicTimeStep 64
   contactProperties [
     ContactProperties {
       material1 "carpet"
@@ -113,9 +112,11 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.47525653950146923 0.6851880170956764 0.5519498191770545 1.6500914046891595
-  position -6.757031772009799 -3.845702585898966 1.3738754006948484
+  orientation -0.6967346369427725 0.15213171571431439 0.7010112600793528 2.742808755312281
+  position -6.395725190883912 -3.68069392216914 3.1436767011881295
   exposure 0.5
+  follow "TurtleBot3Burger"
+  followType "Mounted Shot"
   ambientOcclusionRadius 1
 }
 TexturedBackground {
@@ -772,10 +773,6 @@ StraightStairs {
     }
   ]
   rightRail []
-}
-PaperBoat {
-  translation -8.739015024030815 -5.412000252641715 -4.9050000000029625e-05
-  rotation 5.929977816418089e-16 -2.9322010270899715e-16 -0.9999999999999999 1.047197530295148
 }
 BiscuitBox {
   translation -3.6496 -1.06782 0.8899215200000001
@@ -2300,7 +2297,6 @@ Robot {
           name "right wheel motor"
           consumptionFactor -0.001
           maxVelocity 6.67
-          multiplier 10
         }
         PositionSensor {
           name "right wheel sensor"
@@ -2398,7 +2394,6 @@ Robot {
           name "left wheel motor"
           consumptionFactor -0.001
           maxVelocity 6.67
-          multiplier 10
         }
         PositionSensor {
           name "left wheel sensor"
@@ -2407,7 +2402,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0 0.08 0.033
-        rotation -0.9976843045042374 1.753391204376412e-06 0.06801491412052153 3.141589594443654
+        rotation -0.9976843045042374 1.7533912043764114e-06 0.06801491412052153 3.141589594443654
         children [
           DEF RIGHT_WHEEL Pose {
             rotation 1 0 0 -1.5708003061004252
